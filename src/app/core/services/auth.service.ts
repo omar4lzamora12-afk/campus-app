@@ -20,9 +20,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   /**
-   * Envía credenciales a la API. Se espera que el backend responda con un JWT
-   * y los datos básicos del usuario. El token se guarda en localStorage y se
-   * usa después en cada petición autenticada (ver AuthInterceptor).
+   * Envía credenciales a la API.
    */
   login(credenciales: LoginRequest): Observable<LoginResponse> {
     return this.http
@@ -45,9 +43,7 @@ export class AuthService {
   }
 
   /**
-   * Valida localmente si el token existe y no ha expirado, comparando el
-   * claim "exp" (segundos) contra la hora actual. No sustituye la validación
-   * de firma que debe hacer el backend en cada petición.
+   * Valida localmente si el token existe y no ha expirado
    */
   tokenEsValido(): boolean {
     const token = this.obtenerToken();

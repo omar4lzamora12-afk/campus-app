@@ -3,10 +3,8 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 /**
- * Guard de autenticación: bloquea el acceso a rutas privadas si no existe
- * un token JWT válido (presente y no expirado). Si el usuario no está
- * autenticado, se le redirige al login conservando la URL original en
- * queryParams para poder regresar tras iniciar sesión.
+ * Autenticación: bloquea el acceso a rutas privadas si no existe
+ * un token JWT válido (presente y no expirado).
  */
 export const authGuard: CanActivateFn = (_route, state) => {
   const authService = inject(AuthService);

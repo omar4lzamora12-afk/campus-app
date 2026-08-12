@@ -1,19 +1,5 @@
 /**
  * Servidor de autenticación mínimo para pruebas locales.
- *
- * Sirve un único endpoint, POST /auth/login, que valida las credenciales
- * contra la lista de USUARIOS de abajo y responde exactamente en el
- * formato que espera AuthService: { token, usuario }.
- *
- * Este servidor NO reemplaza a json-server: json-server sigue sirviendo
- * /usuarios y /cursos (puerto 3000). Este script corre en un puerto
- * distinto (3001) y el navegador nunca lo ve directamente porque Angular
- * llama siempre a environment.apiUrl (ver nginx/proxy más abajo si se
- * quiere unificar en un solo puerto).
- *
- * Uso:
- *   npm install express jsonwebtoken cors   (dentro de mock-server/)
- *   node mock-server/auth-server.js
  */
 const express = require('express');
 const jwt = require('jsonwebtoken');
@@ -27,9 +13,9 @@ const SECRETO_JWT = 'clave-secreta-solo-para-pruebas-locales';
 
 // Usuarios de prueba — deben coincidir en id/rol con los de db.json
 const USUARIOS = [
-  { id: 1, nombre: 'Ana Torres', email: 'admin@institucion.edu', password: 'admin123', rol: 'admin' },
-  { id: 2, nombre: 'Luis Ramírez', email: 'profesor@institucion.edu', password: 'profe123', rol: 'profesor' },
-  { id: 3, nombre: 'Carla Méndez', email: 'estudiante@institucion.edu', password: 'est123', rol: 'estudiante' },
+  { id: 1, nombre: 'Gabriel Alzamora', email: 'admin@institucion.edu', password: 'admin123', rol: 'admin' },
+  { id: 2, nombre: 'Jhonny Bogado', email: 'profesor@institucion.edu', password: 'profe123', rol: 'profesor' },
+  { id: 3, nombre: 'Alan Agredo', email: 'estudiante@institucion.edu', password: 'est123', rol: 'estudiante' },
 ];
 
 app.post('/auth/login', (req, res) => {

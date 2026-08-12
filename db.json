@@ -1,8 +1,8 @@
 {
   "usuarios": [
-    { "id": 1, "nombre": "Ana Torres", "email": "admin@institucion.edu", "rol": "admin", "activo": true },
-    { "id": 2, "nombre": "Luis Ramírez", "email": "profesor@institucion.edu", "rol": "profesor", "activo": true },
-    { "id": 3, "nombre": "Carla Méndez", "email": "estudiante@institucion.edu", "rol": "estudiante", "activo": true }
+    { "id": 1, "nombre": "Gabriel Alzamora", "email": "admin@institucion.edu", "rol": "admin", "activo": true },
+    { "id": 2, "nombre": "Jhonny Bogado", "email": "profesor@institucion.edu", "rol": "profesor", "activo": true },
+    { "id": 3, "nombre": "Alan Agredo", "email": "estudiante@institucion.edu", "rol": "estudiante", "activo": true }
   ],
   "cursos": [
     {

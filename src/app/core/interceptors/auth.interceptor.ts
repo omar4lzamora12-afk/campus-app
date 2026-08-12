@@ -5,11 +5,7 @@ import { catchError, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 /**
- * Interceptor funcional (API moderna de Angular 15+/17) que:
- *  1. Adjunta el header "Authorization: Bearer <token>" a toda petición
- *     saliente hacia la API, siempre que exista un token almacenado.
- *  2. Si el backend responde 401 (token inválido/expirado), limpia la
- *     sesión local y redirige al login.
+ * Interceptor funcional (API de Angular 17)
  */
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
