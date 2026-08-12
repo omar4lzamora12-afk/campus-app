@@ -1,0 +1,41 @@
+<div class="login-wrapper">
+  <form class="card login-card" [formGroup]="form" (ngSubmit)="enviar()">
+    <h1>Campus App</h1>
+    <p class="subtitle">Ingresa con tu cuenta institucional</p>
+
+    <label for="email">Correo electrónico</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      placeholder="usuario@institucion.edu"
+      autocomplete="username"
+    />
+    @if (email.invalid && email.touched) {
+      <p class="error-text">
+        @if (email.hasError('required')) { El correo es obligatorio. }
+        @if (email.hasError('email')) { Ingresa un correo válido. }
+      </p>
+    }
+
+    <label for="password">Contraseña</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      placeholder="••••••••"
+      autocomplete="current-password"
+    />
+    @if (password.invalid && password.touched) {
+      <p class="error-text">La contraseña debe tener al menos 4 caracteres.</p>
+    }
+
+    @if (errorMensaje) {
+      <p class="error-text server-error">{{ errorMensaje }}</p>
+    }
+
+    <button class="btn btn-primary" type="submit" [disabled]="cargando">
+      {{ cargando ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="card">
+  @if (usuario(); as u) {
+    <h2>Bienvenido, {{ u.nombre }}</h2>
+
+    @switch (u.rol) {
+      @case ('admin') {
+        <p>Tienes acceso completo: gestión de usuarios, cursos y reportes de la institución.</p>
+      }
+      @case ('profesor') {
+        <p>Desde aquí puedes revisar y administrar los cursos que tienes asignados.</p>
+      }
+      @case ('estudiante') {
+        <p>Consulta los cursos disponibles y tu información académica.</p>
+      }
+    }
+  }
+</div>

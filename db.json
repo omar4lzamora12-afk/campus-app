@@ -1,0 +1,31 @@
+{
+  "usuarios": [
+    { "id": 1, "nombre": "Ana Torres", "email": "admin@institucion.edu", "rol": "admin", "activo": true },
+    { "id": 2, "nombre": "Luis Ramírez", "email": "profesor@institucion.edu", "rol": "profesor", "activo": true },
+    { "id": 3, "nombre": "Carla Méndez", "email": "estudiante@institucion.edu", "rol": "estudiante", "activo": true }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "nombre": "Programación Web",
+      "codigo": "PW-101",
+      "descripcion": "Fundamentos de desarrollo web con Angular",
+      "profesorId": 2,
+      "profesorNombre": "Luis Ramírez",
+      "creditos": 4,
+      "cupoMaximo": 30,
+      "activo": true
+    },
+    {
+      "id": 2,
+      "nombre": "Base de Datos",
+      "codigo": "BD-201",
+      "descripcion": "Diseño y administración de bases de datos relacionales",
+      "profesorId": 2,
+      "profesorNombre": "Luis Ramírez",
+      "creditos": 3,
+      "cupoMaximo": 25,
+      "activo": true
+    }
+  ]
+}

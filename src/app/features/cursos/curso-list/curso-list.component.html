@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="header-row">
+    <h2>Cursos</h2>
+    @if (puedeAdministrar) {
+      <a class="btn btn-primary" routerLink="/cursos/nuevo">+ Nuevo curso</a>
+    }
+  </div>
+
+  @if (errorMensaje) {
+    <p class="error-text">{{ errorMensaje }}</p>
+  }
+
+  @if (cargando) {
+    <p>Cargando cursos...</p>
+  } @else if (cursos.length === 0) {
+    <p>No hay cursos registrados.</p>
+  } @else {
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Profesor</th>
+          <th>Créditos</th>
+          <th>Cupo</th>
+          <th>Estado</th>
+          @if (puedeAdministrar) {
+            <th>Acciones</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (curso of cursos; track curso.id) {
+          <tr>
+            <td>{{ curso.codigo }}</td>
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.profesorNombre ?? 'Sin asignar' }}</td>
+            <td>{{ curso.creditos }}</td>
+            <td>{{ curso.cupoMaximo }}</td>
+            <td>{{ curso.activo ? 'Activo' : 'Inactivo' }}</td>
+            @if (puedeAdministrar) {
+              <td class="acciones">
+                <a class="btn btn-secondary" [routerLink]="['/cursos/editar', curso.id]">Editar</a>
+                <button class="btn btn-danger" (click)="eliminar(curso)">Eliminar</button>
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

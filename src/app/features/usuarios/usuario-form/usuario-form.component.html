@@ -1,0 +1,39 @@
+<div class="card form-card">
+  <h2>{{ modoEdicion ? 'Editar usuario' : 'Nuevo usuario' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <label for="nombre">Nombre completo</label>
+    <input id="nombre" type="text" formControlName="nombre" />
+
+    <label for="email">Correo</label>
+    <input id="email" type="email" formControlName="email" />
+
+    <label for="rol">Rol</label>
+    <select id="rol" formControlName="rol">
+      <option value="admin">Administrador</option>
+      <option value="profesor">Profesor</option>
+      <option value="estudiante">Estudiante</option>
+    </select>
+
+    @if (!modoEdicion) {
+      <label for="password">Contraseña inicial</label>
+      <input id="password" type="password" formControlName="password" />
+    }
+
+    <label class="checkbox-label">
+      <input type="checkbox" formControlName="activo" />
+      Usuario activo
+    </label>
+
+    @if (errorMensaje) {
+      <p class="error-text">{{ errorMensaje }}</p>
+    }
+
+    <div class="form-actions">
+      <a class="btn btn-secondary" routerLink="/usuarios">Cancelar</a>
+      <button class="btn btn-primary" type="submit" [disabled]="guardando">
+        {{ guardando ? 'Guardando...' : 'Guardar' }}
+      </button>
+    </div>
+  </form>
+</div>
